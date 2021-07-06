@@ -2,6 +2,7 @@ package br.ufpe.cin.Ecommerce.entidades;
 
 import java.util.HashSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,9 +14,8 @@ public class Cliente {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Carrinho carrinhoAtual;
-
 
 	public Cliente(Long id, Carrinho carrinhoAtual) {
 		this.id = id;

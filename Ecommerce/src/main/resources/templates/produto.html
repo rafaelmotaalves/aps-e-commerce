@@ -10,6 +10,18 @@
 	<h1>Informações do Produto</h1>
 
 	<h3>Nome: <span th:text="${produto.nome}"></span></h3>
-	<h4>Valor: R$ <span th:text="${produto.valor}"></span></span></h4>	
+	<h4>Valor: R$ <span th:text="${produto.valor}"></span></span></h4>
+
+	<form action="#" th:action="@{/produtos/{id}/carrinho(id=${produto.id})}" th:object="${command}" method="post">
+		<p>
+			Cliente: 
+			<input type="number" th:field="*{idCliente}" />
+		</p>
+		<p>
+			Quantidade:
+			<input type="number" th:field="*{quantidade}" />
+		</p>
+		<input type="submit" />
+	</form>	
 </body>
 </html>

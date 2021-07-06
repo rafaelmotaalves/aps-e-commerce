@@ -11,7 +11,7 @@ public class PedidoProduto {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Long quantidade;
+	private Integer quantidade;
 
 
 	@ManyToOne
@@ -19,7 +19,7 @@ public class PedidoProduto {
 
 	public PedidoProduto() {}
 
-	public PedidoProduto(Long id, Long quantidade, Produto produto) {
+	public PedidoProduto(Long id, Integer quantidade, Produto produto) {
 		this.id = id;
 		this.quantidade = quantidade;
 		this.produto = produto;
@@ -33,11 +33,11 @@ public class PedidoProduto {
 		this.id = id;
 	}
 
-	public Long getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Long quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -47,5 +47,9 @@ public class PedidoProduto {
 
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+	}
+
+	public double calcularValor() {
+		return quantidade * produto.getValor();
 	}
 }
