@@ -63,9 +63,7 @@ public class ProdutoController {
 			return "404";
 		}
 
-		model.addAttribute("items", carrinho.getItems());
-		model.addAttribute("total", carrinho.calcularValor());
-		return "carrinho";
+		return "redirect:/clientes/" + adicionarProdutoForm.idCliente.toString() + "/carrinho";
 	}
 
 }

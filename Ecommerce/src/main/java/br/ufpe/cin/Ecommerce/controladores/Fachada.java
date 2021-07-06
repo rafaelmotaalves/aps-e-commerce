@@ -35,4 +35,8 @@ public class Fachada {
 	public Carrinho adicionarProduto(Long idCliente, Long idProduto , Integer quantidade) {
 		return controladorAdicionarProduto.adicionarProduto(idCliente, idProduto, quantidade);
 	}
+
+	public Carrinho pegarCarrinho(Long idCliente) {
+		return controladorCliente.pegarCarrinho(idCliente);
+	}
 }
