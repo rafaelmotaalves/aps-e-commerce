@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import br.ufpe.cin.Ecommerce.controladores.Fachada;
 import br.ufpe.cin.Ecommerce.entidades.Carrinho;
@@ -19,10 +20,34 @@ public class ClienteController {
 	
 	@Autowired
 	private Fachada fachada;
+	
+	@GetMapping("/clientes/{id}")	
+	public String exibirClientes(@PathVariable(name="id") Long id, Model model) {
+		Cliente c = fachada.pegarCliente(id);
+		model.addAttribute("cliente", fachada.pegarCliente(id));
+		return "cliente";
+	}
+
+	@GetMapping("/cliente")	
+	public String formularioCliente(Model model) {
+		model.addAttribute("command", new AdicionarClienteForm());
+		return "cliente_form";
+	}
 
 	@PostMapping("/clientes")	
-	public Cliente criarCliente(@Valid @RequestBody Cliente cliente) {
-		return fachada.criarCliente(cliente);
+	public String registrarCliente(
+		@Valid @ModelAttribute("command") AdicionarClienteForm adicionarClienteForm, 
+		Model model
+	) {
+		Cliente novoCliente = new Cliente(
+			adicionarClienteForm.cpf,
+			adicionarClienteForm.nome,
+			adicionarClienteForm.endereco,
+			adicionarClienteForm.email,
+			null
+		);
+		fachada.criarCliente(novoCliente);
+		return "redirect:/clientes/" + novoCliente.getId();
 	}
 
 	@GetMapping("/clientes/{id}/carrinho")

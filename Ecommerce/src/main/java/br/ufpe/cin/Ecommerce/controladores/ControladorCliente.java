@@ -20,6 +20,10 @@ public class ControladorCliente {
 		return cadastroCliente.salvar(cliente);
 	}
 
+	public Cliente pegarCliente(Long id) {
+		return cadastroCliente.pegarCliente(id);
+	}
+
 	public Carrinho pegarCarrinho(Long idCliente) {
 		Cliente cliente = cadastroCliente.pegarCliente(idCliente);
 

@@ -24,6 +24,10 @@ public class Fachada {
 		return controladorProduto.pegarTodosProdutos();
 	}
 
+	public Cliente pegarCliente(Long id) {
+		return controladorCliente.pegarCliente(id);
+	}
+
 	public Produto criarProduto(Produto produto) {
 		return controladorProduto.criarProduto(produto);		
 	}
