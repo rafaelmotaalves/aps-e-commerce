@@ -1,4 +1,4 @@
-package br.ufpe.cin.Ecommerce.repositorios;
+package br.ufpe.cin.Ecommerce.repositorios.bdr;
 
 import org.springframework.data.repository.CrudRepository;
 
