@@ -7,6 +7,7 @@
 	<title>Document</title>
 </head>
 <body>
+	<h1>Produtos</h1>
 	<ul>
 		<li th:each="produto : ${produtos}">
 			<a th:text="${produto.nome}" th:href="@{/produtos/{id}(id=${produto.id})}"></a>
