@@ -11,6 +11,8 @@ public class AdicionarClienteForm {
     public String endereco;
     @NotNull
     public String email;
+    @NotNull
+    public String senha;
    
     public AdicionarClienteForm() {}
 
@@ -44,6 +46,14 @@ public class AdicionarClienteForm {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import br.ufpe.cin.Ecommerce.controladores.Fachada;
 import br.ufpe.cin.Ecommerce.entidades.Carrinho;
+import br.ufpe.cin.Ecommerce.entidades.ClienteInternet;
 import br.ufpe.cin.Ecommerce.entidades.Cliente;
 
 @Controller
@@ -39,12 +40,13 @@ public class ClienteController {
 		@Valid @ModelAttribute("command") AdicionarClienteForm adicionarClienteForm, 
 		Model model
 	) {
-		Cliente novoCliente = new Cliente(
+		Cliente novoCliente = new ClienteInternet(
 			adicionarClienteForm.cpf,
 			adicionarClienteForm.nome,
 			adicionarClienteForm.endereco,
+			null,
 			adicionarClienteForm.email,
-			null
+			adicionarClienteForm.senha
 		);
 		fachada.criarCliente(novoCliente);
 		return "redirect:/clientes/" + novoCliente.getId();

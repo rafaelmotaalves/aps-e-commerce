@@ -23,14 +23,11 @@ public class Cliente {
     public String nome;
     @NotBlank(message = "Endereço é obrigatório")
     public String endereco;
-    @NotBlank(message = "Email é obrigatório")
-    public String email;
 
-	public Cliente(String cpf, String nome, String endereco, String email, Carrinho carrinhoAtual) {
+	public Cliente(String cpf, String nome, String endereco, Carrinho carrinhoAtual) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.endereco = endereco;
-		this.email = email;
 		this.carrinhoAtual = carrinhoAtual;
 	}
 
@@ -66,14 +63,6 @@ public class Cliente {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Carrinho getCarrinhoAtual() {
