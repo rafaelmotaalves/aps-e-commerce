@@ -19,15 +19,8 @@ public class Cliente {
 	private Carrinho carrinhoAtual;
 	@NotBlank(message = "CPF é obrigatório")
     public String cpf;
-    @NotBlank(message = "Nome é obrigatório")
-    public String nome;
-    @NotBlank(message = "Endereço é obrigatório")
-    public String endereco;
-
-	public Cliente(String cpf, String nome, String endereco, Carrinho carrinhoAtual) {
+	public Cliente(String cpf, Carrinho carrinhoAtual) {
 		this.cpf = cpf;
-		this.nome = nome;
-		this.endereco = endereco;
 		this.carrinhoAtual = carrinhoAtual;
 	}
 
@@ -41,28 +34,12 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public String getCpf() {
 		return cpf;
 	}
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
 	}
 
 	public Carrinho getCarrinhoAtual() {

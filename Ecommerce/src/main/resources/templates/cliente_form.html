@@ -10,16 +10,8 @@
 	<h1>Registro de Cliente</h1>
 	<form action="#" th:action="@{/clientes}" th:object="${command}" method="post">
 		<p>
-			Nome: 
-			<input type="text" th:field="*{nome}" />
-		</p>
-		<p>
 			Cpf:
 			<input type="text" th:field="*{cpf}" />
-		</p>
-        <p>
-			Endereço:
-			<input type="text" th:field="*{endereco}" />
 		</p>
         <p>
 			Email:

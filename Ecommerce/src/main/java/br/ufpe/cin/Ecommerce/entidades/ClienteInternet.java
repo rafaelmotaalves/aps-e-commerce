@@ -10,8 +10,8 @@ public class ClienteInternet extends Cliente {
     @NotBlank(message = "Senha é obrigatório")
     public String senha;
 
-    public ClienteInternet(String cpf, String nome, String endereco, Carrinho carrinhoAtual, String email, String senha) {
-        super(cpf, nome, endereco, carrinhoAtual);
+    public ClienteInternet(String cpf, Carrinho carrinhoAtual, String email, String senha) {
+        super(cpf, carrinhoAtual);
         this.email = email;
         this.senha = senha;
     }

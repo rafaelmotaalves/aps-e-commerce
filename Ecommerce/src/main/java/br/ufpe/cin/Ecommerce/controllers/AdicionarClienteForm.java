@@ -6,10 +6,6 @@ public class AdicionarClienteForm {
     @NotNull
     public String cpf;
     @NotNull
-    public String nome;
-    @NotNull
-    public String endereco;
-    @NotNull
     public String email;
     @NotNull
     public String senha;
@@ -22,22 +18,6 @@ public class AdicionarClienteForm {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     public String getEmail() {

@@ -42,8 +42,6 @@ public class ClienteController {
 	) {
 		Cliente novoCliente = new ClienteInternet(
 			adicionarClienteForm.cpf,
-			adicionarClienteForm.nome,
-			adicionarClienteForm.endereco,
 			null,
 			adicionarClienteForm.email,
 			adicionarClienteForm.senha
