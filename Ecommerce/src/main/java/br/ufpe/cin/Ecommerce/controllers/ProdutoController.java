@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import br.ufpe.cin.Ecommerce.controladores.CarrinhoCheioException;
 import br.ufpe.cin.Ecommerce.controladores.Fachada;
 import br.ufpe.cin.Ecommerce.entidades.Carrinho;
 import br.ufpe.cin.Ecommerce.entidades.Produto;
@@ -54,11 +55,19 @@ public class ProdutoController {
 		@Valid @ModelAttribute("command") AdicionarProdutoForm adicionarProdutoForm, 
 		Model model
 	) {
-		Carrinho carrinho = fachada.adicionarProduto(
-			adicionarProdutoForm.idCliente, 
-			idProduto, 
-			adicionarProdutoForm.quantidade
-		);
+		Carrinho carrinho = null;
+		try {
+			carrinho = fachada.adicionarProduto(
+				adicionarProdutoForm.idCliente, 
+				idProduto, 
+				adicionarProdutoForm.quantidade
+			);
+		} catch (CarrinhoCheioException e) {
+			model.addAttribute("message", "O carrinho excedeu o tamanho máximo.");
+
+			return "erro";
+		}
+
 		if (carrinho == null) {
 			return "404";
 		}

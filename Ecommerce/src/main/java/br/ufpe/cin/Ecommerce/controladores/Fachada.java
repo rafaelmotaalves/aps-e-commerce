@@ -49,7 +49,7 @@ public class Fachada {
 		return controladorCliente.criarCliente(cliente);
 	}
 
-	public Carrinho adicionarProduto(Long idCliente, Long idProduto , Integer quantidade) {
+	public Carrinho adicionarProduto(Long idCliente, Long idProduto , Integer quantidade) throws CarrinhoCheioException {
 		return controladorAdicionarProduto.adicionarProduto(idCliente, idProduto, quantidade);
 	}
 

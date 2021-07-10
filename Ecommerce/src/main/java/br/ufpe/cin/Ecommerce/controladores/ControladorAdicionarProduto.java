@@ -7,6 +7,8 @@ import br.ufpe.cin.Ecommerce.entidades.Cliente;
 import br.ufpe.cin.Ecommerce.entidades.Produto;
 
 public class ControladorAdicionarProduto {
+
+    public final int MAX_QUANTIDADE_ITEMS = 10;
    
     private CadastroCliente cadastroCliente; 
     private CadastroProduto cadastroProduto;
@@ -16,7 +18,7 @@ public class ControladorAdicionarProduto {
         this.cadastroProduto = cadastroProduto;
     }
 
-    public Carrinho adicionarProduto (Long idCliente, Long idProduto, Integer quantidade) {
+    public Carrinho adicionarProduto (Long idCliente, Long idProduto, Integer quantidade) throws CarrinhoCheioException {
         Cliente cliente = cadastroCliente.pegarCliente(idCliente);
         Produto produto = cadastroProduto.pegar(idProduto);
         
@@ -27,6 +29,10 @@ public class ControladorAdicionarProduto {
         Carrinho carrinho = cliente.getCarrinhoAtual();
 
         carrinho.adicionarProduto(produto, quantidade);
+
+        if (carrinho.quantidadeItems() > MAX_QUANTIDADE_ITEMS) {
+            throw new CarrinhoCheioException();
+        }
 
         cadastroCliente.salvar(cliente);
 
