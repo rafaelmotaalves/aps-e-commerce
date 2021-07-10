@@ -9,14 +9,12 @@ public class ControladorCliente {
 	
 	private CadastroCliente cadastroCliente;
 
-	public Cliente criarCliente(Cliente cliente) {
-		cliente.novoCarrinho();
-
-		return cadastroCliente.salvar(cliente);
-	}
-
 	public ControladorCliente(CadastroCliente cadastroCliente) {
 		this.cadastroCliente = cadastroCliente;
+	}
+
+	public Cliente pegarCliente(Long id) {
+		return cadastroCliente.pegarCliente(id);
 	}
 
 	public Carrinho pegarCarrinho(Long idCliente) {

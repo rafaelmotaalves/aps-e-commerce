@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cliente</title>
+</head>
+<body>
+	<h1>Registro de Cliente</h1>
+	<form action="#" th:action="@{/clientes}" th:object="${command}" method="post">
+		<p>
+			Cpf:
+			<input type="text" th:field="*{cpf}" />
+		</p>
+        <p>
+			Email:
+			<input type="text" th:field="*{email}" />
+		</p>
+		<p>
+			Senha:
+			<input type="password" th:field="*{senha}" />
+		</p>
+		<input type="submit" />
+	</form>	
+</body>
+</html>
