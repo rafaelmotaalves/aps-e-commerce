@@ -65,4 +65,14 @@ public class Carrinho {
 		return total;
 	}
 
+    public int quantidadeItems() {
+		int total = 0;
+
+		for (PedidoProduto pedidoProduto: this.items) {
+			total += pedidoProduto.getQuantidade();
+		}
+
+		return total;
+     }
+
 }

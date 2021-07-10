@@ -54,7 +54,7 @@ public class Fachada {
 		return controladorRegistroCliente.cadastrar(cpf, email, senha);
 	}
 
-	public Carrinho adicionarProduto(Long idCliente, Long idProduto , Integer quantidade) {
+	public Carrinho adicionarProduto(Long idCliente, Long idProduto , Integer quantidade) throws CarrinhoCheioException {
 		return controladorAdicionarProduto.adicionarProduto(idCliente, idProduto, quantidade);
 	}
 
