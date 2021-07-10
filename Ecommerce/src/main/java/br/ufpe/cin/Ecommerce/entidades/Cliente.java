@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+import javax.persistence.Column;
 
 @Entity
 public class Cliente {
@@ -18,6 +19,7 @@ public class Cliente {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Carrinho carrinhoAtual;
 	@NotBlank(message = "CPF é obrigatório")
+	@Column(length=11, nullable=false, unique=true)
     public String cpf;
 	public Cliente(String cpf, Carrinho carrinhoAtual) {
 		this.cpf = cpf;

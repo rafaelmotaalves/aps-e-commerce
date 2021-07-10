@@ -14,13 +14,18 @@ public class ControladorRegistroCliente {
 		this.cadastroCliente = cadastroCliente;
 	}
 
-	public Cliente cadastrar(String cpf, String email, String senha) {
+	public Cliente cadastrar(String cpf, String email, String senha) throws ClienteExistenteException {
 		Cliente cliente = new ClienteInternet(
 			cpf,
 			null,
 			email,
 			senha
 		);
-		return cadastroCliente.criar(cliente);
+		cliente = cadastroCliente.criar(cliente);
+		if (cliente == null) {
+			throw new ClienteExistenteException();
+		} else {
+			return cliente;
+		}
 	}
 }

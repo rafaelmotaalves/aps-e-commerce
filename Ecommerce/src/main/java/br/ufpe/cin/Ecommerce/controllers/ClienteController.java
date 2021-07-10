@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import br.ufpe.cin.Ecommerce.controladores.ClienteExistenteException;
 import br.ufpe.cin.Ecommerce.controladores.Fachada;
 import br.ufpe.cin.Ecommerce.entidades.Carrinho;
 import br.ufpe.cin.Ecommerce.entidades.ClienteInternet;
@@ -40,12 +41,18 @@ public class ClienteController {
 		@Valid @ModelAttribute("command") AdicionarClienteForm adicionarClienteForm, 
 		Model model
 	) {
-		Cliente novoCliente = fachada.cadastrar(
-			adicionarClienteForm.cpf,
-			adicionarClienteForm.email,
-			adicionarClienteForm.senha
-		);
-		return "redirect:/clientes/" + novoCliente.getId();
+		try {
+			Cliente novoCliente = fachada.cadastrar(
+				adicionarClienteForm.cpf,
+				adicionarClienteForm.email,
+				adicionarClienteForm.senha
+			);
+			return "redirect:/clientes/" + novoCliente.getId();	
+		} catch (ClienteExistenteException e) {
+			model.addAttribute("message", "Esse cliente já possui registro no sistema.");
+
+			return "erro";
+		}
 	}
 
 	@GetMapping("/clientes/{id}/carrinho")

@@ -2,10 +2,14 @@ package br.ufpe.cin.Ecommerce.entidades;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "cliente")
 public class ClienteInternet extends Cliente {
     @NotBlank(message = "Email é obrigatório")
+    @Column(nullable=false, unique=true)
     public String email;
     @NotBlank(message = "Senha é obrigatório")
     public String senha;

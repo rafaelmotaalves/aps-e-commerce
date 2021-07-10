@@ -50,7 +50,7 @@ public class Fachada {
 		return controladorProduto.criarProduto(produto);		
 	}
 
-	public Cliente cadastrar(String cpf, String email, String senha) {
+	public Cliente cadastrar(String cpf, String email, String senha) throws ClienteExistenteException {
 		return controladorRegistroCliente.cadastrar(cpf, email, senha);
 	}
 
