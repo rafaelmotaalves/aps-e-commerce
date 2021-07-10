@@ -36,17 +36,15 @@ public class ClienteController {
 	}
 
 	@PostMapping("/clientes")	
-	public String registrarCliente(
+	public String cadastrar(
 		@Valid @ModelAttribute("command") AdicionarClienteForm adicionarClienteForm, 
 		Model model
 	) {
-		Cliente novoCliente = new ClienteInternet(
+		Cliente novoCliente = fachada.cadastrar(
 			adicionarClienteForm.cpf,
-			null,
 			adicionarClienteForm.email,
 			adicionarClienteForm.senha
 		);
-		fachada.criarCliente(novoCliente);
 		return "redirect:/clientes/" + novoCliente.getId();
 	}
 

@@ -17,6 +17,7 @@ public class Fachada {
 	
 	private ControladorProduto controladorProduto;
 	private ControladorCliente controladorCliente;
+	private ControladorRegistroCliente controladorRegistroCliente;
 	private ControladorAdicionarProduto controladorAdicionarProduto;
 
 	@Autowired
@@ -29,9 +30,9 @@ public class Fachada {
 
 		this.controladorProduto = new ControladorProduto(cadastroProduto);
 		this.controladorCliente = new ControladorCliente(cadastroCliente);
+		this.controladorRegistroCliente = new ControladorRegistroCliente(cadastroCliente);
 		this.controladorAdicionarProduto = new ControladorAdicionarProduto(cadastroCliente, cadastroProduto);
 	}
-
 
 	public Produto pegarProduto(Long id) {
 		return controladorProduto.pegarProduto(id);
@@ -49,8 +50,8 @@ public class Fachada {
 		return controladorProduto.criarProduto(produto);		
 	}
 
-	public Cliente criarCliente(Cliente cliente) {
-		return controladorCliente.criarCliente(cliente);
+	public Cliente cadastrar(String cpf, String email, String senha) {
+		return controladorRegistroCliente.cadastrar(cpf, email, senha);
 	}
 
 	public Carrinho adicionarProduto(Long idCliente, Long idProduto , Integer quantidade) {

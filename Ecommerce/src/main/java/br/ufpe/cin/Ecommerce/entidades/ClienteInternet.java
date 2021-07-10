@@ -14,6 +14,7 @@ public class ClienteInternet extends Cliente {
         super(cpf, carrinhoAtual);
         this.email = email;
         this.senha = senha;
+        super.novoCarrinho();
     }
 
     public ClienteInternet() {}

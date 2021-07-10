@@ -16,6 +16,10 @@ public class CadastroCliente {
 		return repositorioCliente.atualizar(cliente);
 	}
 
+	public Cliente criar(Cliente cliente) {
+		return repositorioCliente.atualizar(cliente);
+	}
+
 	public Cliente pegarCliente(Long id) {
 		return repositorioCliente.pegar(id);
 	}
