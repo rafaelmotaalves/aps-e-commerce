@@ -7,5 +7,6 @@ Essa página descreve o projeto de Análise e Projeto de Sistemas para uma aplic
 
 ### Entregas
 * [Entrega 1](entregas/1/README.md)
-* [Entrega 2](entregas/2/README.md)
+* [Entrega 2 - RUP](entregas/2/README.md)
+* [Entrega 3 - SOA](entregas/3/README.md)
 
